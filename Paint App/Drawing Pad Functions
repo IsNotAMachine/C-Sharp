@@ -1,0 +1,65 @@
+namespace DrawingPad
+{
+    public partial class Form1 : Form
+    {
+        // initial variables
+        Graphics graphics;
+        // setting cursor moving to false initially
+        Boolean cursorMoving = false;
+        // creating the pen and starting position 
+        Pen cursorPen;
+        int cursorX = -1;
+        int cursorY = -1;
+
+        public Form1()
+        {
+            // initiallizing the graphics and pen color
+            InitializeComponent();
+            graphics = canvas.CreateGraphics();
+            cursorPen = new Pen(Color.Black, 7);
+            // getting a smooth and round pen 
+            graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            cursorPen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
+            cursorPen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
+        }
+
+        // route all other colors through this method
+        private void blackBox_Click(object sender, EventArgs e)
+        {
+            // when clicked we cast sender as picture box and send it to the color 
+            PictureBox color = (PictureBox)sender;
+            // set color of the pen equal to the current button selected 
+            cursorPen.Color = color.BackColor;
+        }
+
+        private void canvas_MouseDown(object sender, MouseEventArgs e)
+        {
+            // set moving to true to draw  
+            cursorMoving = true;
+            // grab x coord of mouse 
+            cursorX = e.X;
+            // grab y coord of mouse
+            cursorY = e.Y;
+
+        }
+
+        private void canvas_MouseUp(object sender, MouseEventArgs e)
+        {
+            // set the moving to false for mouse up
+            cursorMoving = false;
+            cursorX = -1;
+            cursorY = -1;
+        }
+
+        private void canvas_MouseMove(object sender, MouseEventArgs e)
+        {
+            // when mouse moving follow location of the mouse when conditions are true 
+            if (cursorX != -1 && cursorY != -1 && cursorMoving == true)
+            {
+                graphics.DrawLine(cursorPen, new Point(cursorX, cursorY), e.Location);
+                cursorX = e.X;
+                cursorY = e.Y;
+            }
+        }
+    }
+}
