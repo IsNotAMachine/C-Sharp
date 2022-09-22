@@ -1,0 +1,255 @@
+using System;
+
+// class for card holder
+public class cardHolder
+{
+    string cardNum;
+    int pin;
+    string firstName;
+    string lastName;
+    double balance;
+
+
+    // instantiating variables as new objects (constructors)
+    public cardHolder(string cardNum, int pin, string firstName, string lastName, double balance)
+    {
+        this.cardNum = cardNum;
+        this.pin = pin;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.balance = balance;
+    }
+
+    // getting card number
+    public string getNum()
+    {
+        return cardNum;
+    }
+
+    // getting pin number 
+    public int getPin()
+    {
+        return pin;
+    }
+
+    // getting first name 
+    public string getFirstName()
+    {
+        return firstName;
+    }
+
+    // getting last name 
+    public string getLastName()
+    {
+        return lastName;
+    }
+
+    // get account balance
+    public double getBalance()
+    {
+        return balance;
+    }
+
+
+    // creating setters for each variable 
+    public void setNum(String newCardNum)
+    {
+        cardNum = newCardNum;
+    }
+
+    // setting pin number 
+    public void setPin(int newPin)
+    {
+        pin = newPin;
+    }
+
+    // settting first name 
+    public void setFirstName(String newFirstName)
+    {
+        firstName = newFirstName;
+    }
+
+    // setting last name 
+    public void setLastName(String newLastName)
+    {
+        lastName = newLastName;
+    }
+
+    // seting balance 
+    public void setBalance(double newBalance)
+    {
+        balance = newBalance;
+    }
+
+    // main method to make the ATM 
+    public static void Main(String[] args)
+    {
+        // creating functions for user to see the options 
+        void printOptions()
+        {
+            // asking user which option they would like to complete 
+            Console.WriteLine("Please choose from one of the following options:");
+            Console.WriteLine("1. Deposit");
+            Console.WriteLine("2. Withdraw");
+            Console.WriteLine("3. Balance");
+            Console.WriteLine("4. Exit");
+        }
+
+        // function to handle deposits for current user 
+        void deposit(cardHolder currentUser)
+        {
+
+            while(true)
+                try
+                {
+                    // asking user how much they want to deposit
+                    Console.WriteLine("How much money would you like to deposit? ");
+                    // getting that data 
+                    double deposit = Double.Parse(Console.ReadLine());
+                    if (deposit.GetType() != typeof(double))
+                    {
+                        Console.WriteLine("Please enter a valid number.");
+                    }
+                    else 
+                    {
+                        currentUser.setBalance(deposit + currentUser.getBalance());
+                        Console.WriteLine("Thank you for you $$. Your new balance is: " + string.Format("{0:C}", currentUser.getBalance()));
+                        break;
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Please enter a valid number");
+                }   
+        }
+        
+
+        void withdraw(cardHolder currentUser)
+        {
+            while(true)
+                try
+                {
+                    // asking user how much they want to withdraw 
+                    Console.WriteLine("How much money would you like to withdraw? ");
+                    double withdrawal = Double.Parse(Console.ReadLine());
+                    // checking to see correct data type 
+                    if (withdrawal.GetType() != typeof(double))
+                    {
+                        Console.WriteLine("Please enter a valid number.");
+                    }
+                    else
+                    {
+                        // need to prevent them from withdrawing more than they have 
+                        if (currentUser.getBalance() < withdrawal)
+                        {
+                            Console.WriteLine("Insufficent balance :(");
+                        }
+                        else
+                        {
+                            currentUser.setBalance(currentUser.getBalance() - withdrawal);
+                            Console.WriteLine("You're good to go! Your new balance is {0}. Thank you!", string.Format("{0:C}", currentUser.getBalance()));
+                        }
+                        break;
+                    }
+
+                }
+                catch { Console.WriteLine("Please enter a valid input"); }
+        }
+       
+
+        // function to get user balance 
+        void balance(cardHolder currentUser)
+        {
+            Console.WriteLine("Current balance: {0}", string.Format("{0:C}",currentUser.getBalance()));
+        }
+
+        // create list to test with fake names and information 
+        List<cardHolder> cardHolders = new List<cardHolder>();
+        cardHolders.Add(new cardHolder("1938747483728193", 1234, "John", "Bones", 200.52));
+        cardHolders.Add(new cardHolder("9786873883742632", 4321, "Tess", "Caskey", 20.75));
+        cardHolders.Add(new cardHolder("7980523498734584", 0934, "Billy", "Kimber", 1539.22));
+        cardHolders.Add(new cardHolder("0978345287092344", 3422, "Hannah", "Dickert", 725.43));
+        cardHolders.Add(new cardHolder("3214897038973292", 9874, "Rick", "James", 53.80));
+
+        // prompt user 
+        Console.WriteLine("Welcome to the Simple ATM!");
+        Console.WriteLine("Please insert your debit card: ");
+
+        // user validation 
+        String debitCardNum = "";
+        cardHolder currentUser;
+
+        // looking for the correct card number from the user 
+        while (true)
+        {
+            try
+            {
+                debitCardNum = Console.ReadLine();
+                //check against our list 
+                currentUser = cardHolders.FirstOrDefault(a => a.cardNum == debitCardNum);
+                if (currentUser != null) 
+                { 
+                    break; 
+                }
+                else 
+                { 
+                    Console.WriteLine("Card not recognized. Please try again."); 
+                }
+            }
+            catch 
+            { 
+                Console.WriteLine("Card not recognized. Please try again."); 
+            }
+
+        }
+
+        Console.WriteLine("Please enter your pin: ");
+        int userPin = 0;
+        while (true)
+        {
+            try
+            {
+                userPin = int.Parse(Console.ReadLine());
+                if (currentUser.getPin()  == userPin) 
+                { 
+                    break; 
+                }
+                else 
+                { 
+                    Console.WriteLine("Incorrect Pin. Please try again."); 
+                }
+            }
+                catch 
+                { 
+                    Console.WriteLine("Incorrect Pin. Please try again."); 
+                }
+
+         }
+
+        // welcome user after credentials passed
+        Console.WriteLine("Welcome {0} :)", currentUser.getFirstName());
+        int option = 0;
+
+        // add do while loop for when user is in the system 
+        do
+        {
+            // grabbing options for user 
+            printOptions();
+            try
+            {
+                option = int.Parse(Console.ReadLine());
+            }
+            catch { }
+            // depending on user input take user to different screens
+            if (option == 1) { deposit(currentUser); }
+            else if (option == 2) { withdraw(currentUser); }
+            else if (option == 3) { balance(currentUser); }
+            else if (option == 4) { break; }
+            // after set option back to zero 
+            else { option = 0; }
+        }
+        // because 4 is the exit key
+        while (option != 4);
+        Console.WriteLine("Thank you have a nice day!");
+    }
+}
