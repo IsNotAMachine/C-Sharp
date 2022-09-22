@@ -1,0 +1,2 @@
+For TwilioSMS App you need to create a Twilio account and access the SID key and Auth Key as well as have a Twilio number to make the app work. 
+You also need to put those numbers in the correct values to function. 
