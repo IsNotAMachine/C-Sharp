@@ -1,0 +1,535 @@
+namespace MathAppGUI
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.btn_Start = new System.Windows.Forms.Button();
+            this.lbl_Start = new System.Windows.Forms.Label();
+            this.btn_Base = new System.Windows.Forms.Button();
+            this.btn_All = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btn_Exit = new System.Windows.Forms.Button();
+            this.lbl_Base = new System.Windows.Forms.Label();
+            this.lbl_All = new System.Windows.Forms.Label();
+            this.txtbx_All = new System.Windows.Forms.TextBox();
+            this.txtbx_answer = new System.Windows.Forms.Label();
+            this.lbl_Enter = new System.Windows.Forms.Label();
+            this.base_One = new System.Windows.Forms.Button();
+            this.base_Two = new System.Windows.Forms.Button();
+            this.base_Three = new System.Windows.Forms.Button();
+            this.base_Four = new System.Windows.Forms.Button();
+            this.base_Five = new System.Windows.Forms.Button();
+            this.base_Six = new System.Windows.Forms.Button();
+            this.base_Seven = new System.Windows.Forms.Button();
+            this.base_Eight = new System.Windows.Forms.Button();
+            this.base_Nine = new System.Windows.Forms.Button();
+            this.txtbox_Base1 = new System.Windows.Forms.TextBox();
+            this.txtbox_Base2 = new System.Windows.Forms.TextBox();
+            this.txtbox_Base3 = new System.Windows.Forms.TextBox();
+            this.txtbox_Base4 = new System.Windows.Forms.TextBox();
+            this.txtbox_Base5 = new System.Windows.Forms.TextBox();
+            this.txtbox_Base6 = new System.Windows.Forms.TextBox();
+            this.txtbox_Base7 = new System.Windows.Forms.TextBox();
+            this.txtbox_Base8 = new System.Windows.Forms.TextBox();
+            this.txtbox_Base9 = new System.Windows.Forms.TextBox();
+            this.lbl_roundScore = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_TotalScore = new System.Windows.Forms.Label();
+            this.lbl_Exit = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // btn_Start
+            // 
+            this.btn_Start.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_Start.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_Start.Font = new System.Drawing.Font("Cambria Math", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Start.Location = new System.Drawing.Point(311, 12);
+            this.btn_Start.Name = "btn_Start";
+            this.btn_Start.Size = new System.Drawing.Size(178, 118);
+            this.btn_Start.TabIndex = 0;
+            this.btn_Start.Text = "Start";
+            this.btn_Start.UseVisualStyleBackColor = false;
+            this.btn_Start.Click += new System.EventHandler(this.btn_Start_Click);
+            // 
+            // lbl_Start
+            // 
+            this.lbl_Start.AutoSize = true;
+            this.lbl_Start.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lbl_Start.Location = new System.Drawing.Point(308, 151);
+            this.lbl_Start.Name = "lbl_Start";
+            this.lbl_Start.Size = new System.Drawing.Size(0, 13);
+            this.lbl_Start.TabIndex = 1;
+            // 
+            // btn_Base
+            // 
+            this.btn_Base.AutoSize = true;
+            this.btn_Base.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btn_Base.Location = new System.Drawing.Point(176, 246);
+            this.btn_Base.Name = "btn_Base";
+            this.btn_Base.Size = new System.Drawing.Size(132, 44);
+            this.btn_Base.TabIndex = 2;
+            this.btn_Base.Text = "Choose a Base";
+            this.btn_Base.UseVisualStyleBackColor = false;
+            this.btn_Base.Visible = false;
+            this.btn_Base.Click += new System.EventHandler(this.btn_Base_Click);
+            // 
+            // btn_All
+            // 
+            this.btn_All.AutoSize = true;
+            this.btn_All.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btn_All.Location = new System.Drawing.Point(327, 246);
+            this.btn_All.Name = "btn_All";
+            this.btn_All.Size = new System.Drawing.Size(132, 44);
+            this.btn_All.TabIndex = 3;
+            this.btn_All.Text = "Review All";
+            this.btn_All.UseVisualStyleBackColor = false;
+            this.btn_All.Visible = false;
+            this.btn_All.Click += new System.EventHandler(this.btn_All_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label1.Font = new System.Drawing.Font("Cambria Math", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(200, 151);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(386, 84);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Welcome to Math App! Make your parents proud!";
+            // 
+            // btn_Exit
+            // 
+            this.btn_Exit.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btn_Exit.Location = new System.Drawing.Point(485, 246);
+            this.btn_Exit.Name = "btn_Exit";
+            this.btn_Exit.Size = new System.Drawing.Size(132, 44);
+            this.btn_Exit.TabIndex = 5;
+            this.btn_Exit.Text = "Exit";
+            this.btn_Exit.UseVisualStyleBackColor = false;
+            this.btn_Exit.Visible = false;
+            this.btn_Exit.VisibleChanged += new System.EventHandler(this.btn_Start_Click);
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
+            // 
+            // lbl_Base
+            // 
+            this.lbl_Base.AutoSize = true;
+            this.lbl_Base.Font = new System.Drawing.Font("Cambria Math", 15F);
+            this.lbl_Base.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lbl_Base.Location = new System.Drawing.Point(308, 387);
+            this.lbl_Base.Name = "lbl_Base";
+            this.lbl_Base.Size = new System.Drawing.Size(129, 111);
+            this.lbl_Base.TabIndex = 6;
+            this.lbl_Base.Text = "Problem: ";
+            this.lbl_Base.Visible = false;
+            // 
+            // lbl_All
+            // 
+            this.lbl_All.AutoSize = true;
+            this.lbl_All.Font = new System.Drawing.Font("Cambria Math", 15F);
+            this.lbl_All.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lbl_All.Location = new System.Drawing.Point(308, 387);
+            this.lbl_All.Name = "lbl_All";
+            this.lbl_All.Size = new System.Drawing.Size(129, 111);
+            this.lbl_All.TabIndex = 7;
+            this.lbl_All.Text = "Problem: ";
+            this.lbl_All.Visible = false;
+            // 
+            // txtbx_All
+            // 
+            this.txtbx_All.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbx_All.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.txtbx_All.Location = new System.Drawing.Point(471, 434);
+            this.txtbx_All.Name = "txtbx_All";
+            this.txtbx_All.Size = new System.Drawing.Size(54, 23);
+            this.txtbx_All.TabIndex = 8;
+            this.txtbx_All.Visible = false;
+            this.txtbx_All.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbx_All_KeyDown);
+            // 
+            // txtbx_answer
+            // 
+            this.txtbx_answer.AutoSize = true;
+            this.txtbx_answer.Font = new System.Drawing.Font("Cambria Math", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbx_answer.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.txtbx_answer.Location = new System.Drawing.Point(308, 479);
+            this.txtbx_answer.Name = "txtbx_answer";
+            this.txtbx_answer.Size = new System.Drawing.Size(112, 111);
+            this.txtbx_answer.TabIndex = 9;
+            this.txtbx_answer.Text = "Answer";
+            this.txtbx_answer.Visible = false;
+            // 
+            // lbl_Enter
+            // 
+            this.lbl_Enter.AutoSize = true;
+            this.lbl_Enter.Font = new System.Drawing.Font("Cambria Math", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Enter.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lbl_Enter.Location = new System.Drawing.Point(537, 399);
+            this.lbl_Enter.Name = "lbl_Enter";
+            this.lbl_Enter.Size = new System.Drawing.Size(118, 89);
+            this.lbl_Enter.TabIndex = 10;
+            this.lbl_Enter.Text = "press Enter";
+            this.lbl_Enter.Visible = false;
+            // 
+            // base_One
+            // 
+            this.base_One.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.base_One.Location = new System.Drawing.Point(176, 308);
+            this.base_One.Name = "base_One";
+            this.base_One.Size = new System.Drawing.Size(53, 31);
+            this.base_One.TabIndex = 11;
+            this.base_One.Text = "base 1";
+            this.base_One.UseVisualStyleBackColor = false;
+            this.base_One.Visible = false;
+            this.base_One.Click += new System.EventHandler(this.base_One_Click);
+            // 
+            // base_Two
+            // 
+            this.base_Two.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.base_Two.Location = new System.Drawing.Point(255, 308);
+            this.base_Two.Name = "base_Two";
+            this.base_Two.Size = new System.Drawing.Size(53, 31);
+            this.base_Two.TabIndex = 12;
+            this.base_Two.Text = "base 2";
+            this.base_Two.UseVisualStyleBackColor = false;
+            this.base_Two.Visible = false;
+            this.base_Two.Click += new System.EventHandler(this.base_Two_Click);
+            // 
+            // base_Three
+            // 
+            this.base_Three.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.base_Three.Location = new System.Drawing.Point(327, 308);
+            this.base_Three.Name = "base_Three";
+            this.base_Three.Size = new System.Drawing.Size(53, 31);
+            this.base_Three.TabIndex = 13;
+            this.base_Three.Text = "base 3";
+            this.base_Three.UseVisualStyleBackColor = false;
+            this.base_Three.Visible = false;
+            this.base_Three.Click += new System.EventHandler(this.base_Three_Click);
+            // 
+            // base_Four
+            // 
+            this.base_Four.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.base_Four.Location = new System.Drawing.Point(406, 308);
+            this.base_Four.Name = "base_Four";
+            this.base_Four.Size = new System.Drawing.Size(53, 31);
+            this.base_Four.TabIndex = 14;
+            this.base_Four.Text = "base 4";
+            this.base_Four.UseVisualStyleBackColor = false;
+            this.base_Four.Visible = false;
+            this.base_Four.Click += new System.EventHandler(this.base_Four_Click);
+            // 
+            // base_Five
+            // 
+            this.base_Five.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.base_Five.Location = new System.Drawing.Point(485, 308);
+            this.base_Five.Name = "base_Five";
+            this.base_Five.Size = new System.Drawing.Size(53, 31);
+            this.base_Five.TabIndex = 15;
+            this.base_Five.Text = "base 5";
+            this.base_Five.UseVisualStyleBackColor = false;
+            this.base_Five.Visible = false;
+            this.base_Five.Click += new System.EventHandler(this.base_Five_Click);
+            // 
+            // base_Six
+            // 
+            this.base_Six.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.base_Six.Location = new System.Drawing.Point(176, 353);
+            this.base_Six.Name = "base_Six";
+            this.base_Six.Size = new System.Drawing.Size(53, 31);
+            this.base_Six.TabIndex = 16;
+            this.base_Six.Text = "base 6";
+            this.base_Six.UseVisualStyleBackColor = false;
+            this.base_Six.Visible = false;
+            this.base_Six.Click += new System.EventHandler(this.base_Six_Click);
+            // 
+            // base_Seven
+            // 
+            this.base_Seven.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.base_Seven.Location = new System.Drawing.Point(255, 353);
+            this.base_Seven.Name = "base_Seven";
+            this.base_Seven.Size = new System.Drawing.Size(53, 31);
+            this.base_Seven.TabIndex = 17;
+            this.base_Seven.Text = "base 7";
+            this.base_Seven.UseVisualStyleBackColor = false;
+            this.base_Seven.Visible = false;
+            this.base_Seven.Click += new System.EventHandler(this.base_Seven_Click);
+            // 
+            // base_Eight
+            // 
+            this.base_Eight.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.base_Eight.Location = new System.Drawing.Point(327, 353);
+            this.base_Eight.Name = "base_Eight";
+            this.base_Eight.Size = new System.Drawing.Size(53, 31);
+            this.base_Eight.TabIndex = 18;
+            this.base_Eight.Text = "base 8";
+            this.base_Eight.UseVisualStyleBackColor = false;
+            this.base_Eight.Visible = false;
+            this.base_Eight.Click += new System.EventHandler(this.base_Eight_Click);
+            // 
+            // base_Nine
+            // 
+            this.base_Nine.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.base_Nine.Location = new System.Drawing.Point(406, 353);
+            this.base_Nine.Name = "base_Nine";
+            this.base_Nine.Size = new System.Drawing.Size(53, 31);
+            this.base_Nine.TabIndex = 19;
+            this.base_Nine.Text = "base 9";
+            this.base_Nine.UseVisualStyleBackColor = false;
+            this.base_Nine.Visible = false;
+            this.base_Nine.Click += new System.EventHandler(this.base_Nine_Click);
+            // 
+            // txtbox_Base1
+            // 
+            this.txtbox_Base1.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbox_Base1.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.txtbox_Base1.Location = new System.Drawing.Point(471, 434);
+            this.txtbox_Base1.Name = "txtbox_Base1";
+            this.txtbox_Base1.Size = new System.Drawing.Size(54, 23);
+            this.txtbox_Base1.TabIndex = 20;
+            this.txtbox_Base1.Visible = false;
+            this.txtbox_Base1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbox_Base1_KeyDown);
+            // 
+            // txtbox_Base2
+            // 
+            this.txtbox_Base2.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbox_Base2.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.txtbox_Base2.Location = new System.Drawing.Point(471, 434);
+            this.txtbox_Base2.Name = "txtbox_Base2";
+            this.txtbox_Base2.Size = new System.Drawing.Size(54, 23);
+            this.txtbox_Base2.TabIndex = 21;
+            this.txtbox_Base2.Visible = false;
+            this.txtbox_Base2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbox_Base2_KeyDown);
+            // 
+            // txtbox_Base3
+            // 
+            this.txtbox_Base3.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbox_Base3.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.txtbox_Base3.Location = new System.Drawing.Point(471, 434);
+            this.txtbox_Base3.Name = "txtbox_Base3";
+            this.txtbox_Base3.Size = new System.Drawing.Size(54, 23);
+            this.txtbox_Base3.TabIndex = 22;
+            this.txtbox_Base3.Visible = false;
+            this.txtbox_Base3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbox_Base3_KeyDown);
+            // 
+            // txtbox_Base4
+            // 
+            this.txtbox_Base4.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbox_Base4.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.txtbox_Base4.Location = new System.Drawing.Point(471, 434);
+            this.txtbox_Base4.Name = "txtbox_Base4";
+            this.txtbox_Base4.Size = new System.Drawing.Size(54, 23);
+            this.txtbox_Base4.TabIndex = 23;
+            this.txtbox_Base4.Visible = false;
+            this.txtbox_Base4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbox_Base4_KeyDown);
+            // 
+            // txtbox_Base5
+            // 
+            this.txtbox_Base5.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbox_Base5.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.txtbox_Base5.Location = new System.Drawing.Point(471, 434);
+            this.txtbox_Base5.Name = "txtbox_Base5";
+            this.txtbox_Base5.Size = new System.Drawing.Size(54, 23);
+            this.txtbox_Base5.TabIndex = 24;
+            this.txtbox_Base5.Visible = false;
+            this.txtbox_Base5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbox_Base5_KeyDown);
+            // 
+            // txtbox_Base6
+            // 
+            this.txtbox_Base6.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbox_Base6.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.txtbox_Base6.Location = new System.Drawing.Point(471, 434);
+            this.txtbox_Base6.Name = "txtbox_Base6";
+            this.txtbox_Base6.Size = new System.Drawing.Size(54, 23);
+            this.txtbox_Base6.TabIndex = 25;
+            this.txtbox_Base6.Visible = false;
+            this.txtbox_Base6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbox_Base6_KeyDown);
+            // 
+            // txtbox_Base7
+            // 
+            this.txtbox_Base7.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbox_Base7.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.txtbox_Base7.Location = new System.Drawing.Point(471, 434);
+            this.txtbox_Base7.Name = "txtbox_Base7";
+            this.txtbox_Base7.Size = new System.Drawing.Size(54, 23);
+            this.txtbox_Base7.TabIndex = 26;
+            this.txtbox_Base7.Visible = false;
+            this.txtbox_Base7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbox_Base7_KeyDown);
+            // 
+            // txtbox_Base8
+            // 
+            this.txtbox_Base8.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbox_Base8.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.txtbox_Base8.Location = new System.Drawing.Point(471, 434);
+            this.txtbox_Base8.Name = "txtbox_Base8";
+            this.txtbox_Base8.Size = new System.Drawing.Size(54, 23);
+            this.txtbox_Base8.TabIndex = 27;
+            this.txtbox_Base8.Visible = false;
+            this.txtbox_Base8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbox_Base8_KeyDown);
+            // 
+            // txtbox_Base9
+            // 
+            this.txtbox_Base9.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbox_Base9.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.txtbox_Base9.Location = new System.Drawing.Point(471, 434);
+            this.txtbox_Base9.Name = "txtbox_Base9";
+            this.txtbox_Base9.Size = new System.Drawing.Size(54, 23);
+            this.txtbox_Base9.TabIndex = 28;
+            this.txtbox_Base9.Visible = false;
+            this.txtbox_Base9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbox_Base9_KeyDown);
+            // 
+            // lbl_roundScore
+            // 
+            this.lbl_roundScore.AutoSize = true;
+            this.lbl_roundScore.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lbl_roundScore.Font = new System.Drawing.Font("Cambria Math", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_roundScore.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbl_roundScore.Location = new System.Drawing.Point(13, 13);
+            this.lbl_roundScore.Name = "lbl_roundScore";
+            this.lbl_roundScore.Size = new System.Drawing.Size(138, 67);
+            this.lbl_roundScore.TabIndex = 29;
+            this.lbl_roundScore.Text = "Score this round: ";
+            this.lbl_roundScore.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "label2";
+            // 
+            // lbl_TotalScore
+            // 
+            this.lbl_TotalScore.AutoSize = true;
+            this.lbl_TotalScore.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lbl_TotalScore.Font = new System.Drawing.Font("Cambria Math", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_TotalScore.Location = new System.Drawing.Point(13, 99);
+            this.lbl_TotalScore.Name = "lbl_TotalScore";
+            this.lbl_TotalScore.Size = new System.Drawing.Size(100, 67);
+            this.lbl_TotalScore.TabIndex = 31;
+            this.lbl_TotalScore.Text = "Total Score:";
+            this.lbl_TotalScore.Visible = false;
+            // 
+            // lbl_Exit
+            // 
+            this.lbl_Exit.AutoSize = true;
+            this.lbl_Exit.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lbl_Exit.Font = new System.Drawing.Font("Cambria Math", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Exit.Location = new System.Drawing.Point(293, 399);
+            this.lbl_Exit.Name = "lbl_Exit";
+            this.lbl_Exit.Size = new System.Drawing.Size(154, 106);
+            this.lbl_Exit.TabIndex = 32;
+            this.lbl_Exit.Text = "Total Score: ";
+            this.lbl_Exit.Visible = false;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClientSize = new System.Drawing.Size(823, 599);
+            this.Controls.Add(this.lbl_Exit);
+            this.Controls.Add(this.lbl_TotalScore);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl_roundScore);
+            this.Controls.Add(this.txtbox_Base9);
+            this.Controls.Add(this.txtbox_Base8);
+            this.Controls.Add(this.txtbox_Base7);
+            this.Controls.Add(this.txtbox_Base6);
+            this.Controls.Add(this.txtbox_Base5);
+            this.Controls.Add(this.txtbox_Base4);
+            this.Controls.Add(this.txtbox_Base3);
+            this.Controls.Add(this.txtbox_Base2);
+            this.Controls.Add(this.txtbox_Base1);
+            this.Controls.Add(this.base_Nine);
+            this.Controls.Add(this.base_Eight);
+            this.Controls.Add(this.base_Seven);
+            this.Controls.Add(this.base_Six);
+            this.Controls.Add(this.base_Five);
+            this.Controls.Add(this.base_Four);
+            this.Controls.Add(this.base_Three);
+            this.Controls.Add(this.base_Two);
+            this.Controls.Add(this.base_One);
+            this.Controls.Add(this.lbl_Enter);
+            this.Controls.Add(this.txtbx_answer);
+            this.Controls.Add(this.txtbx_All);
+            this.Controls.Add(this.lbl_All);
+            this.Controls.Add(this.lbl_Base);
+            this.Controls.Add(this.btn_Exit);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btn_All);
+            this.Controls.Add(this.btn_Base);
+            this.Controls.Add(this.lbl_Start);
+            this.Controls.Add(this.btn_Start);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Form1";
+            this.Text = "Math App";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        public System.Windows.Forms.Button btn_Start;
+        private System.Windows.Forms.Label lbl_Start;
+        public System.Windows.Forms.Button btn_Base;
+        public System.Windows.Forms.Button btn_All;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_Exit;
+        private System.Windows.Forms.Label lbl_Base;
+        private System.Windows.Forms.Label lbl_All;
+        private System.Windows.Forms.TextBox txtbx_All;
+        private System.Windows.Forms.Label txtbx_answer;
+        private System.Windows.Forms.Label lbl_Enter;
+        private System.Windows.Forms.Button base_One;
+        private System.Windows.Forms.Button base_Two;
+        private System.Windows.Forms.Button base_Three;
+        private System.Windows.Forms.Button base_Four;
+        private System.Windows.Forms.Button base_Five;
+        private System.Windows.Forms.Button base_Six;
+        private System.Windows.Forms.Button base_Seven;
+        private System.Windows.Forms.Button base_Eight;
+        private System.Windows.Forms.Button base_Nine;
+        private System.Windows.Forms.TextBox txtbox_Base1;
+        private System.Windows.Forms.TextBox txtbox_Base2;
+        private System.Windows.Forms.TextBox txtbox_Base3;
+        private System.Windows.Forms.TextBox txtbox_Base4;
+        private System.Windows.Forms.TextBox txtbox_Base5;
+        private System.Windows.Forms.TextBox txtbox_Base6;
+        private System.Windows.Forms.TextBox txtbox_Base7;
+        private System.Windows.Forms.TextBox txtbox_Base8;
+        private System.Windows.Forms.TextBox txtbox_Base9;
+        private System.Windows.Forms.Label lbl_roundScore;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_TotalScore;
+        private System.Windows.Forms.Label lbl_Exit;
+    }
+}
+
