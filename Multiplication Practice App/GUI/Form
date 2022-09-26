@@ -1,0 +1,1268 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Globalization;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace MathAppGUI
+{
+   // form class 
+    public partial class Form1 : Form
+    {
+        // global variables
+        Random random = new Random();
+        int firstNum;
+        int secondNum;
+        int answer;
+        int roundScore;
+        int totScore;
+        int totQuestions;
+        int roundQuestions;
+        int tries;
+
+        // instantiating new variables as new objects
+        public void getnumbers(int firstNum, int secondNum, int answer, int roundScore, int totScore, int totQuestions, int roundQuestions, int tries)
+        {
+            this.firstNum = firstNum;
+            this.secondNum = secondNum;
+            this.answer = answer;
+            this.roundScore = roundScore;
+            this.totScore = totScore;
+            this.totQuestions = totQuestions;
+            this.roundQuestions = roundQuestions;
+            this.tries = tries;
+        }
+
+        // getting round score 
+        public int getRoundScore()
+        {
+            return roundScore;
+        }
+        // getting total score 
+        public int getTotScore()
+        {
+            return totScore;
+        }
+        // getting total number of questions 
+        public int getTotQuestions()
+        {
+            return totQuestions;
+        }
+        // getting number of questions in round 
+        public int getRoundQuestions()
+        {
+            return roundQuestions;
+        }
+        // getting number of tries on a problem 
+        public int getTries()
+        {
+            return tries;
+        }
+        // getting first number 
+        public int getFirstNum()
+        {
+            return firstNum;
+        }
+        // getting secondary number
+        public int getSecondNum()
+        {
+            return secondNum;
+        }
+        // getting answer
+        public int getAnswer()
+        {
+            return answer;
+        }
+        // setting round score
+        public void setRoundScore(int newRoundscore)
+        {
+            // adding 1 to score
+            roundScore = newRoundscore + 1;  
+        }
+        // setting total score
+        public void setTotScore(int newTotScore)
+        {
+            // adding 1 to score
+            totScore = newTotScore + 1;
+        }
+        // setting total number of questions
+        public void setTotQuestions(int newTotQuestions)
+        {
+            // adding 1 to score
+            totQuestions = newTotQuestions + 1;
+        }
+        // setting number of questions in round 
+        public void setRoundQuestions(int newRoundQuestions)
+        {
+            // adding 1 to score
+            roundQuestions = roundQuestions + 1;
+        }
+        // setting the number of tries 
+        public void setTries(int newTries)
+        {
+            // adding 1 to score
+            tries = tries + 1;
+        }
+        // setting first number
+        public void setFirstNum(int newFirstNum, int base1, int base2)
+        {
+            // generate first random number given a base   
+            firstNum = random.Next(base1, base2);
+        }
+        // setting secondary number
+        public void setSecondNum(int newSecondNum, int base1, int base2)
+        {
+            // generate second random number given the bases
+            secondNum = random.Next(base1, base2);
+        }
+        // setting answer
+        public void setAnswer(int firstNum, int secondNum)
+        {
+            // getting answer from first and second number
+            answer = firstNum * secondNum;
+        }
+     
+        // initializing form 1
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        // object references with start click 
+        private void btn_Start_Click(object sender, EventArgs e)
+        {
+            // showing and hiding relavant objects on start click
+            btn_Base.Visible = true;
+            btn_All.Visible = true;
+            btn_Exit.Visible = true;
+            lbl_Exit.Visible = false;
+            lbl_roundScore.Visible = true;
+
+            // setting scores to 0 at the start
+            roundScore = 0;
+            roundQuestions = 0;
+            totScore = 0;
+            totQuestions = 0;
+            tries = 0;
+
+            // printing scores
+            lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+            lbl_TotalScore.Visible = true;
+            lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+            
+        }
+        // object references with base click 
+        private void btn_Base_Click(object sender, EventArgs e)
+        {
+            // showing and hiding relavant objects
+            lbl_All.Visible = false;
+            txtbx_All.Visible = false;
+            lbl_Enter.Visible = false;
+            txtbx_answer.Visible = false;
+            base_One.Visible = true;
+            base_Two.Visible = true;
+            base_Three.Visible = true;
+            base_Four.Visible = true;
+            base_Five.Visible = true;
+            base_Six.Visible = true;
+            base_Seven.Visible = true;
+            base_Eight.Visible = true;
+            base_Nine.Visible = true;
+            lbl_Exit.Visible = false;
+
+            // reseting round scores to 0 
+            roundScore = 0;
+            roundQuestions = 0;
+            tries = 0;
+        }
+        // object references with all click 
+        public void btn_All_Click(object sender, EventArgs e)
+        {
+            // showing and hiding relavant objects
+            lbl_Base.Visible = false;
+            txtbox_Base1.Visible = false;
+            lbl_All.Visible = true;
+            txtbx_All.Visible = true;
+            lbl_Exit.Visible = false;
+            lbl_Enter.Visible = true;
+            base_One.Visible = false;
+            base_Two.Visible = false;
+            base_Three.Visible = false;
+            base_Four.Visible = false;
+            base_Five.Visible = false;
+            base_Six.Visible = false;
+            base_Seven.Visible = false;
+            base_Eight.Visible = false;
+            base_Nine.Visible = false;
+            txtbox_Base1.Visible = false;
+            txtbox_Base2.Visible = false;
+            txtbox_Base3.Visible = false;
+            txtbox_Base4.Visible = false;
+            txtbox_Base5.Visible = false;
+            txtbox_Base6.Visible = false;
+            txtbox_Base7.Visible = false;
+            txtbox_Base8.Visible = false;
+            txtbox_Base9.Visible = false;
+            
+            // setting round score to 0 
+            roundScore = 0;
+            roundQuestions = 0;
+            tries = 0;
+
+            // getting numbers for all and displaying them
+            setFirstNum(firstNum, 1, 99);
+            setSecondNum(secondNum, 1, 99);
+            setAnswer(firstNum, secondNum);
+            String text = getFirstNum() + " X " + getSecondNum();
+            lbl_All.Text = text;
+        }
+        // enter object all numbers
+        private void txtbx_All_KeyDown(object sender, KeyEventArgs e)
+        {
+            String textBox = txtbx_All.Text;
+
+            // at enter key test answer is valid option 
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = e.SuppressKeyPress = true;
+                try
+                {
+                    int result = Int32.Parse(textBox);
+                    int answer = getAnswer();
+                    // correct add and print scores get new numbers
+                    if (result == answer && tries == 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        setRoundQuestions(roundQuestions);
+                        setRoundScore(roundScore);
+                        setTotQuestions(totQuestions);
+                        setTotScore(totScore);
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 1, 99);
+                        setSecondNum(secondNum, 1, 99);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_All.Text = text;
+                        txtbx_All.Text  = String.Empty;
+                        tries = 0;
+                    }
+                    // correct multiple trys no adding to score 
+                    else if (result == answer && tries != 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 1, 99);
+                        setSecondNum(secondNum, 1, 99);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_All.Text = text;
+                        txtbx_All.Text = String.Empty;
+                        tries = 0;
+                    }
+                    // incorrect add questions try again 
+                    else if (result != answer)
+                    {
+                        if(tries == 0)
+                        {
+                            setRoundQuestions(roundQuestions);
+                            setTotQuestions(totQuestions);
+                            tries++;
+                            lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                            lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbx_All.Text = String.Empty;
+                        }
+                        else
+                        {
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbx_All.Text = String.Empty;
+                        }                        
+                    }
+                }
+                catch
+                {
+                    txtbx_answer.Visible = true;
+                    txtbx_answer.Text = "Enter a value";
+                    txtbx_All.Text = String.Empty;
+                }
+            }
+        }
+        // butten exit objects and score 
+        private void btn_Exit_Click(object sender, EventArgs e)
+        {
+            // show and hide relavant objects
+            lbl_All.Visible = false;
+            lbl_Base.Visible = false;
+            lbl_Exit.Visible = true;
+            txtbx_All.Visible = false;
+            txtbox_Base1.Visible = false;
+            txtbox_Base2.Visible = false;
+            txtbox_Base3.Visible = false;
+            txtbox_Base4.Visible = false;
+            txtbox_Base5.Visible = false;
+            txtbox_Base6.Visible = false;
+            txtbox_Base7.Visible = false;
+            txtbox_Base8.Visible = false;
+            txtbox_Base9.Visible = false;
+            lbl_Enter.Visible = false;
+            txtbx_answer.Visible = false; 
+            base_One.Visible = false;
+            base_Two.Visible = false;
+            base_Three.Visible = false;
+            base_Four.Visible = false;
+            base_Five.Visible = false;
+            base_Six.Visible = false;
+            base_Seven.Visible = false;
+            base_Eight.Visible = false;
+            base_Nine.Visible = false;
+            btn_All.Visible = false;
+            btn_Base.Visible = false;
+            
+            // print final score
+            lbl_Exit.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+        }
+        // getting base one info and objects 
+        private void base_One_Click(object sender, EventArgs e)
+        {
+            // show and hide relavant objects
+            lbl_Base.Visible = true;
+            txtbox_Base1.Visible = true;
+            txtbox_Base2.Visible = false;
+            txtbox_Base3.Visible = false;
+            txtbox_Base4.Visible = false;
+            txtbox_Base5.Visible = false;
+            txtbox_Base6.Visible = false;
+            txtbox_Base7.Visible = false;
+            txtbox_Base8.Visible = false;
+            txtbox_Base9.Visible = false;
+            txtbx_All.Visible = false;
+            lbl_Enter.Visible = true;
+            
+            // reset round score and get numbers 
+            roundScore = 0;
+            roundQuestions = 0;
+            setFirstNum(firstNum, 10, 19);
+            setSecondNum(secondNum, 10, 19);
+            setAnswer(firstNum, secondNum);
+            String text = getFirstNum() + " X " + getSecondNum();
+            lbl_Base.Text = text;
+        }
+        // getting base two info and objects 
+        private void base_Two_Click(object sender, EventArgs e)
+        {
+            // show and hide relavant objects
+            lbl_Base.Visible = true;
+            txtbox_Base2.Visible = true;
+            txtbox_Base1.Visible = false;
+            txtbox_Base3.Visible = false;
+            txtbox_Base4.Visible = false;
+            txtbox_Base5.Visible = false;
+            txtbox_Base6.Visible = false;
+            txtbox_Base7.Visible = false;
+            txtbox_Base8.Visible = false;
+            txtbox_Base9.Visible = false;
+            txtbx_All.Visible = false;
+            lbl_Enter.Visible = true;
+
+            // reset score and get numbers
+            roundScore = 0;
+            roundQuestions = 0;
+            setFirstNum(firstNum, 20, 29);
+            setSecondNum(secondNum, 20, 29);
+            setAnswer(firstNum, secondNum);
+            String text = getFirstNum() + " X " + getSecondNum();
+            lbl_Base.Text = text;
+        }
+        // getting base three info and objects
+        private void base_Three_Click(object sender, EventArgs e)
+        {
+            // show and hide relavant objects
+            lbl_Base.Visible = true;
+            txtbox_Base3.Visible = true;
+            txtbox_Base1.Visible = false;
+            txtbox_Base2.Visible = false;
+            txtbox_Base4.Visible = false;
+            txtbox_Base5.Visible = false;
+            txtbox_Base6.Visible = false;
+            txtbox_Base7.Visible = false;
+            txtbox_Base8.Visible = false;
+            txtbox_Base9.Visible = false;
+            txtbx_All.Visible = false;
+            lbl_Enter.Visible = true;
+
+            // reset score and get numbers
+            roundScore = 0;
+            roundQuestions = 0;
+            setFirstNum(firstNum, 30, 39);
+            setSecondNum(secondNum, 30, 39);
+            setAnswer(firstNum, secondNum);
+            String text = getFirstNum() + " X " + getSecondNum();
+            lbl_Base.Text = text;
+        }
+        // getting base four info and objects
+        private void base_Four_Click(object sender, EventArgs e)
+        {
+            // show and hide relavant objects
+            lbl_Base.Visible = true;
+            txtbox_Base4.Visible = true;
+            txtbox_Base1.Visible = false;
+            txtbox_Base2.Visible = false;
+            txtbox_Base3.Visible = false;
+            txtbox_Base5.Visible = false;
+            txtbox_Base6.Visible = false;
+            txtbox_Base7.Visible = false;
+            txtbox_Base8.Visible = false;
+            txtbox_Base9.Visible = false;
+            txtbx_All.Visible = false;
+            lbl_Enter.Visible = true;
+
+            // reset score and get numbers 
+            roundScore = 0;
+            roundQuestions = 0;
+            setFirstNum(firstNum, 40, 49);
+            setSecondNum(secondNum, 40, 49);
+            setAnswer(firstNum, secondNum);
+            String text = getFirstNum() + " X " + getSecondNum();
+            lbl_Base.Text = text;
+        }
+        // getting base five info and objects
+        private void base_Five_Click(object sender, EventArgs e)
+        {
+            // show and hide relavant objects
+            lbl_Base.Visible = true;
+            txtbox_Base5.Visible = true;
+            txtbox_Base1.Visible = false;
+            txtbox_Base2.Visible = false;
+            txtbox_Base3.Visible = false;
+            txtbox_Base4.Visible = false;
+            txtbox_Base6.Visible = false;
+            txtbox_Base7.Visible = false;
+            txtbox_Base8.Visible = false;
+            txtbox_Base9.Visible = false;
+            txtbx_All.Visible = false;
+            lbl_Enter.Visible = true;
+
+            // reset score and get numbers
+            roundScore = 0;
+            roundQuestions = 0;
+            setFirstNum(firstNum, 50, 59);
+            setSecondNum(secondNum, 50, 59);
+            setAnswer(firstNum, secondNum);
+            String text = getFirstNum() + " X " + getSecondNum();
+            lbl_Base.Text = text;
+        }
+        // getting base six info and objects
+        private void base_Six_Click(object sender, EventArgs e)
+        {
+            // show and hide relavant objects
+            lbl_Base.Visible = true;
+            txtbox_Base6.Visible = true;
+            txtbox_Base1.Visible = false;
+            txtbox_Base2.Visible = false;
+            txtbox_Base3.Visible = false;
+            txtbox_Base4.Visible = false;
+            txtbox_Base5.Visible = false;
+            txtbox_Base7.Visible = false;
+            txtbox_Base8.Visible = false;
+            txtbox_Base9.Visible = false;
+            txtbx_All.Visible = false;
+            lbl_Enter.Visible = true;
+
+            // reset score and get new numbers 
+            roundScore = 0;
+            roundQuestions = 0;
+            setFirstNum(firstNum, 60, 69);
+            setSecondNum(secondNum, 60, 69);
+            setAnswer(firstNum, secondNum);
+            String text = getFirstNum() + " X " + getSecondNum();
+            lbl_Base.Text = text;
+        }
+        // getting base seven info and objects 
+        private void base_Seven_Click(object sender, EventArgs e)
+        {
+            // show and hide relavant objects
+            lbl_Base.Visible = true;
+            txtbox_Base7.Visible = true;
+            txtbox_Base1.Visible = false;
+            txtbox_Base2.Visible = false;
+            txtbox_Base3.Visible = false;
+            txtbox_Base4.Visible = false;
+            txtbox_Base5.Visible = false;
+            txtbox_Base6.Visible = false;
+            txtbox_Base8.Visible = false;
+            txtbox_Base9.Visible = false;
+            txtbx_All.Visible = false;
+            lbl_Enter.Visible = true;
+
+            // reset score and get numbers
+            roundScore = 0;
+            roundQuestions = 0;
+            setFirstNum(firstNum, 70, 79);
+            setSecondNum(secondNum, 70, 79);
+            setAnswer(firstNum, secondNum);
+            String text = getFirstNum() + " X " + getSecondNum();
+            lbl_Base.Text = text;
+        }
+        // getting base eight info and objects
+        private void base_Eight_Click(object sender, EventArgs e)
+        {
+            // show and hide relavant objects
+            lbl_Base.Visible = true;
+            txtbox_Base8.Visible = true;
+            txtbox_Base1.Visible = false;
+            txtbox_Base2.Visible = false;
+            txtbox_Base3.Visible = false;
+            txtbox_Base4.Visible = false;
+            txtbox_Base5.Visible = false;
+            txtbox_Base6.Visible = false;
+            txtbox_Base7.Visible = false;
+            txtbox_Base9.Visible = false;
+            txtbx_All.Visible = false;
+            lbl_Enter.Visible = true;
+
+            // reset score and get new numbers
+            roundScore = 0;
+            roundQuestions = 0;
+            setFirstNum(firstNum, 80, 89);
+            setSecondNum(secondNum, 80, 89);
+            setAnswer(firstNum, secondNum);
+            String text = getFirstNum() + " X " + getSecondNum();
+            lbl_Base.Text = text;
+        }
+        // getting base nine info and objects
+        private void base_Nine_Click(object sender, EventArgs e)
+        {
+            // show and hide relavant objects
+            lbl_Base.Visible = true;
+            txtbox_Base9.Visible = true;
+            txtbox_Base1.Visible = false;
+            txtbox_Base2.Visible = false;
+            txtbox_Base3.Visible = false;
+            txtbox_Base4.Visible = false;
+            txtbox_Base5.Visible = false;
+            txtbox_Base6.Visible = false;
+            txtbox_Base7.Visible = false;
+            txtbox_Base8.Visible = false;
+            txtbx_All.Visible = false;
+            lbl_Enter.Visible = true;
+
+            // reset score and get numbers
+            roundScore = 0;
+            roundQuestions = 0;
+            setFirstNum(firstNum, 90, 99);
+            setSecondNum(secondNum, 90, 99);
+            setAnswer(firstNum, secondNum);
+            String text = getFirstNum() + " X " + getSecondNum();
+            lbl_Base.Text = text;
+        }
+        // text box for base 1 
+        private void txtbox_Base1_KeyDown(object sender, KeyEventArgs e)
+        {
+            String textBox = txtbox_Base1.Text;
+            // on enter test if correct input
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = e.SuppressKeyPress = true;
+                try
+                {
+                    int result = Int32.Parse(textBox);
+                    int answer = getAnswer();
+                    // correct add scores get new numbers
+                    if (result == answer && tries == 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        setRoundQuestions(roundQuestions);
+                        setRoundScore(roundScore);
+                        setTotQuestions(totQuestions);
+                        setTotScore(totScore);
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 10, 19);
+                        setSecondNum(secondNum, 10, 19);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_Base.Text = text;
+                        txtbox_Base1.Text = String.Empty;
+                        tries = 0;
+                    }
+                    // second try correct don't add score get new numbers
+                    else if (result == answer && tries != 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 10, 19);
+                        setSecondNum(secondNum, 10, 19);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_Base.Text = text;
+                        txtbox_Base1.Text = String.Empty;
+                        tries = 0;
+                    }
+                    // incorrect add questions try again
+                    else if (result != answer)
+                    {
+                        if(tries == 0)
+                        {
+                            setRoundQuestions(roundQuestions);
+                            setTotQuestions(totQuestions);
+                            tries++;
+                            lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                            lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbox_Base1.Text = String.Empty;
+                        }
+                        else
+                        {
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbox_Base1.Text = String.Empty;
+                        }                       
+                    }
+                }
+                // input not correct type try again 
+                catch
+                {
+                    txtbx_answer.Visible = true;
+                    txtbx_answer.Text = "Enter a value";
+                    txtbox_Base1.Text = String.Empty;
+                }
+            }
+        }
+        // text box for base 2
+        private void txtbox_Base2_KeyDown(object sender, KeyEventArgs e)
+        {
+            String textBox = txtbox_Base2.Text;
+            // on enter test if input is correct
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = e.SuppressKeyPress = true;
+                try
+                {
+                    int result = Int32.Parse(textBox);
+                    int answer = getAnswer();
+                    // correct add score get new numbers 
+                    if (result == answer && tries == 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        setRoundQuestions(roundQuestions);
+                        setRoundScore(roundScore);
+                        setTotQuestions(totQuestions);
+                        setTotScore(totScore);
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 20, 29);
+                        setSecondNum(secondNum, 20, 29);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_Base.Text = text;
+                        txtbox_Base2.Text = String.Empty;
+                        tries = 0;
+                    }
+                    // second try correct don't add score get new numbers
+                    else if (result == answer && tries != 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 10, 19);
+                        setSecondNum(secondNum, 10, 19);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_Base.Text = text;
+                        txtbox_Base2.Text = String.Empty;
+                        tries = 0;
+                    }
+                    // incorrect add questions try again
+                    else if (result != answer)
+                    {
+                        if (tries == 0)
+                        {
+                            setRoundQuestions(roundQuestions);
+                            setTotQuestions(totQuestions);
+                            tries++;
+                            lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                            lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbox_Base2.Text = String.Empty;
+                        }
+                        else
+                        {
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbox_Base2.Text = String.Empty;
+                        }
+                    }
+                }
+                // input not correct type try again
+                catch
+                {
+                    txtbx_answer.Visible = true;
+                    txtbx_answer.Text = "Enter a value";
+                    txtbox_Base2.Text = String.Empty;
+                }
+            }
+        }
+        // text box for base 3
+        private void txtbox_Base3_KeyDown(object sender, KeyEventArgs e)
+        {
+            String textBox = txtbox_Base3.Text;
+            // on enter test if input if correct
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = e.SuppressKeyPress = true;
+                try
+                {
+                    int result = Int32.Parse(textBox);
+                    int answer = getAnswer();
+                    // correct add scores and get new numbers 
+                    if (result == answer && tries == 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        setRoundQuestions(roundQuestions);
+                        setRoundScore(roundScore);
+                        setTotQuestions(totQuestions);
+                        setTotScore(totScore);
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 30, 39);
+                        setSecondNum(secondNum, 30, 39);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_Base.Text = text;
+                        txtbox_Base3.Text = String.Empty;
+                        tries = 0;
+                    }
+                    // second try correct get new numbers 
+                    else if (result == answer && tries != 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 30, 39);
+                        setSecondNum(secondNum, 30, 39);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_Base.Text = text;
+                        txtbox_Base3.Text = String.Empty;
+                        tries = 0;
+                    }
+                    // incorrect add questions try again
+                    else if (result != answer)
+                    {
+                        if (tries == 0)
+                        {
+                            setRoundQuestions(roundQuestions);
+                            setTotQuestions(totQuestions);
+                            tries++;
+                            lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                            lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbox_Base3.Text = String.Empty;
+                        }
+                        else
+                        {
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbox_Base3.Text = String.Empty;
+                        }
+                    }
+                }
+                // input not correct type try again 
+                catch
+                {
+                    txtbx_answer.Visible = true;
+                    txtbx_answer.Text = "Enter a value";
+                    txtbox_Base3.Text = String.Empty;
+                }
+            }
+        }
+        // text box for base 4
+        private void txtbox_Base4_KeyDown(object sender, KeyEventArgs e)
+        {
+            String textBox = txtbox_Base4.Text;
+            // on enter check input correct type
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = e.SuppressKeyPress = true;
+                try
+                {
+                    int result = Int32.Parse(textBox);
+                    int answer = getAnswer();
+                    // correct add score and get new numbers 
+                    if (result == answer && tries == 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        setRoundQuestions(roundQuestions);
+                        setRoundScore(roundScore);
+                        setTotQuestions(totQuestions);
+                        setTotScore(totScore);
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 40, 49);
+                        setSecondNum(secondNum, 40, 49);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_Base.Text = text;
+                        txtbox_Base4.Text = String.Empty;
+                        tries = 0;
+                    }
+                    // second try correct get new numbers 
+                    else if (result == answer && tries != 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 40, 49);
+                        setSecondNum(secondNum, 40, 49);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_Base.Text = text;
+                        txtbox_Base4.Text = String.Empty;
+                        tries = 0;
+                    }
+                    // incorrect add questions try again 
+                    else if (result != answer)
+                    {
+                        if (tries == 0)
+                        {
+                            setRoundQuestions(roundQuestions);
+                            setTotQuestions(totQuestions);
+                            tries++;
+                            lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                            lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbox_Base4.Text = String.Empty;
+                        }
+                        else
+                        {
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbox_Base4.Text = String.Empty;
+                        }
+                    }
+                }
+                // input not correct type try again 
+                catch
+                {
+                    txtbx_answer.Visible = true;
+                    txtbx_answer.Text = "Enter a value";
+                    txtbox_Base4.Text = String.Empty;
+                }
+            }
+        }
+        // text box for base 5 
+        private void txtbox_Base5_KeyDown(object sender, KeyEventArgs e)
+        {
+            String textBox = txtbox_Base5.Text;
+            // on enter check correct input type
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = e.SuppressKeyPress = true;
+                try
+                {
+                    int result = Int32.Parse(textBox);
+                    int answer = getAnswer();
+                    // correct add scores get new numbers 
+                    if (result == answer && tries == 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        setRoundQuestions(roundQuestions);
+                        setRoundScore(roundScore);
+                        setTotQuestions(totQuestions);
+                        setTotScore(totScore);
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 50, 59);
+                        setSecondNum(secondNum, 50, 59);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_Base.Text = text;
+                        txtbox_Base5.Text = String.Empty;
+                        tries = 0;
+                    }
+                    // second try correct get new numbers 
+                    else if (result == answer && tries != 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 50, 59);
+                        setSecondNum(secondNum, 50, 59);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_Base.Text = text;
+                        txtbox_Base5.Text = String.Empty;
+                        tries = 0;
+                    }
+                    // incorrect add questions try again 
+                    else if (result != answer)
+                    {
+                        if (tries == 0)
+                        {
+                            setRoundQuestions(roundQuestions);
+                            setTotQuestions(totQuestions);
+                            tries++;
+                            lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                            lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbox_Base5.Text = String.Empty;
+                        }
+                        else
+                        {
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbox_Base5.Text = String.Empty;
+                        }
+                    }   
+                }
+                // input not correct type try again
+                catch
+                {
+                    txtbx_answer.Visible = true;
+                    txtbx_answer.Text = "Enter a value";
+                    txtbox_Base5.Text = String.Empty;
+                }
+            }
+        }
+        // text box for base 6
+        private void txtbox_Base6_KeyDown(object sender, KeyEventArgs e)
+        {
+            String textBox = txtbox_Base6.Text;
+            // on enter check correct input type 
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = e.SuppressKeyPress = true;
+                try
+                {
+                    int result = Int32.Parse(textBox);
+                    int answer = getAnswer();
+                    // correct add scores get new numbers
+                    if (result == answer && tries == 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        setRoundQuestions(roundQuestions);
+                        setRoundScore(roundScore);
+                        setTotQuestions(totQuestions);
+                        setTotScore(totScore);
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 60, 69);
+                        setSecondNum(secondNum, 60, 69);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_Base.Text = text;
+                        txtbox_Base6.Text = String.Empty;
+                        tries = 0;
+
+                    }
+                    // second try correct get new numbers 
+                    else if (result == answer && tries != 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 60, 69);
+                        setSecondNum(secondNum, 60, 69);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_Base.Text = text;
+                        txtbox_Base6.Text = String.Empty;
+                        tries = 0;
+
+                    }
+                    // incorrect add questions try again
+                    else if (result != answer)
+                    {
+                        if (tries == 0)
+                        {
+                            setRoundQuestions(roundQuestions);
+                            setTotQuestions(totQuestions);
+                            tries++;
+                            lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                            lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbox_Base6.Text = String.Empty;
+                        }
+                        else
+                        {
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbox_Base6.Text = String.Empty;
+                        }
+
+                    }
+                }
+                // if input not correct type try again
+                catch
+                {
+                    txtbx_answer.Visible = true;
+                    txtbx_answer.Text = "Enter a value";
+                    txtbox_Base6.Text = String.Empty;
+                }
+            }
+        }
+        // text box for base 7 
+        private void txtbox_Base7_KeyDown(object sender, KeyEventArgs e)
+        {
+            String textBox = txtbox_Base7.Text;
+            // on enter check input is correct type
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = e.SuppressKeyPress = true;
+                try
+                {
+                    int result = Int32.Parse(textBox);
+                    int answer = getAnswer();
+                    // correct add scores and get new numbers 
+                    if (result == answer && tries == 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        setRoundQuestions(roundQuestions);
+                        setRoundScore(roundScore);
+                        setTotQuestions(totQuestions);
+                        setTotScore(totScore);
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 70, 79);
+                        setSecondNum(secondNum, 70, 79);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_Base.Text = text;
+                        txtbox_Base7.Text = String.Empty;
+                        tries = 0;
+                    }
+                    // second try correct get new numbers 
+                    else if (result == answer && tries != 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 70, 79);
+                        setSecondNum(secondNum, 70, 79);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_Base.Text = text;
+                        txtbox_Base7.Text = String.Empty;
+                        tries = 0;
+                    }
+                    // incorrect add questions try again 
+                    else if (result != answer)
+                    {
+                        if (tries == 0)
+                        {
+                            setRoundQuestions(roundQuestions);
+                            setTotQuestions(totQuestions);
+                            tries++;
+                            lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                            lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbox_Base7.Text = String.Empty;
+                        }
+                        else
+                        {
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbox_Base7.Text = String.Empty;
+                        }
+                    }
+                }
+                // if input not correct type try again 
+                catch
+                {
+                    txtbx_answer.Visible = true;
+                    txtbx_answer.Text = "Enter a value";
+                    txtbox_Base7.Text = String.Empty;
+                }
+            }
+        }
+        // text box for base 8 
+        private void txtbox_Base8_KeyDown(object sender, KeyEventArgs e)
+        {
+            String textBox = txtbox_Base8.Text;
+            // on enter check input is correct type 
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = e.SuppressKeyPress = true;
+                try
+                {
+                    int result = Int32.Parse(textBox);
+                    int answer = getAnswer();
+                    // correct add score and get new numbers 
+                    if (result == answer && tries == 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        setRoundQuestions(roundQuestions);
+                        setRoundScore(roundScore);
+                        setTotQuestions(totQuestions);
+                        setTotScore(totScore);
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 80, 89);
+                        setSecondNum(secondNum, 80, 89);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_Base.Text = text;
+                        txtbox_Base8.Text = String.Empty;
+                        tries = 0;
+                    }
+                    // second try correct get new numbers
+                    else if (result == answer && tries != 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 80, 89);
+                        setSecondNum(secondNum, 80, 89);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_Base.Text = text;
+                        txtbox_Base8.Text = String.Empty;
+                        tries = 0;
+                    }
+                    // incorrect add questons try again 
+                    else if (result != answer)
+                    {
+                        if (tries == 0)
+                        {
+                            setRoundQuestions(roundQuestions);
+                            setTotQuestions(totQuestions);
+                            tries++;
+                            lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                            lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbox_Base8.Text = String.Empty;
+                        }
+                        else
+                        {
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbox_Base8.Text = String.Empty;
+                        }
+                    }
+                }
+                // if value not correct type try again 
+                catch
+                {
+                    txtbx_answer.Visible = true;
+                    txtbx_answer.Text = "Enter a value";
+                    txtbox_Base8.Text = String.Empty;
+                }
+            }
+        }
+        // Text box for base 9
+        private void txtbox_Base9_KeyDown(object sender, KeyEventArgs e)
+        {
+            String textBox = txtbox_Base9.Text;
+            // on enter check correct input type 
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = e.SuppressKeyPress = true;
+                try
+                {
+                    int result = Int32.Parse(textBox);
+                    int answer = getAnswer();
+                    // correct add score get new numbers
+                    if (result == answer && tries == 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        setRoundQuestions(roundQuestions);
+                        setRoundScore(roundScore);
+                        setTotQuestions(totQuestions);
+                        setTotScore(totScore);
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 90, 99);
+                        setSecondNum(secondNum, 90, 99);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_Base.Text = text;
+                        txtbox_Base9.Text = String.Empty;
+                        tries = 0;
+                    }
+                    // second try correct get new numbers 
+                    else if (result == answer && tries != 0)
+                    {
+                        txtbx_answer.Visible = true;
+                        txtbx_answer.Text = "Good Job!";
+                        lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                        lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                        setFirstNum(firstNum, 90, 99);
+                        setSecondNum(secondNum, 90, 99);
+                        setAnswer(firstNum, secondNum);
+                        String text = getFirstNum() + " X " + getSecondNum();
+                        lbl_Base.Text = text;
+                        txtbox_Base9.Text = String.Empty;
+                        tries = 0;
+                    }
+                    // incorrect add questions try again 
+                    else if (result != answer)
+                    {
+                        if (tries == 0)
+                        {
+                            setRoundQuestions(roundQuestions);
+                            setTotQuestions(totQuestions);
+                            tries++;
+                            lbl_roundScore.Text = "Round Score: " + getRoundScore() + " out of " + getRoundQuestions();
+                            lbl_TotalScore.Text = "Total Score: " + getTotScore() + " out of " + getTotQuestions();
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbox_Base9.Text = String.Empty;
+                        }
+                        else
+                        {
+                            txtbx_answer.Visible = true;
+                            txtbx_answer.Text = "Why you dissapoint family!? ";
+                            txtbox_Base9.Text = String.Empty;
+                        }
+                    }
+                }
+                // if value is not correc type try again 
+                catch
+                {
+                    txtbx_answer.Visible = true;
+                    txtbx_answer.Text = "Enter a value";
+                    txtbox_Base9.Text = String.Empty;
+                }
+            }
+        }
+    }
+}
