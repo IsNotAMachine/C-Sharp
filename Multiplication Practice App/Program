@@ -1,0 +1,15 @@
+using System;
+using System.Xml.Schema;
+
+namespace Game 
+{
+    public class game
+    {
+        public static void Main(String[] args)
+        {
+            mathInternal math = new mathInternal();
+            Console.WriteLine("Welcome to math game. Make your parents proud.\n");
+            math.printMenu();
+        }
+    }
+}
