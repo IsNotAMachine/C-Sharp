@@ -1,0 +1,809 @@
+using System;
+
+
+namespace Game
+{
+    public class mathInternal
+    {
+        //global variables
+        int score = 0;
+        int numOfQuestions = 0;
+        int numOfTries = 0;
+        int scoreSec = 0;
+        int triesSec = 0;
+        int queSec = 0;
+
+        // printing the menu to get started
+        public int printMenu()
+        {
+            Console.WriteLine("To select your base press 1");
+            Console.WriteLine("To use all numbers 1-99 press 2");
+            // checking that the input is correct
+            while (true)
+            {
+                int userInput = 0;
+                try
+                {
+                    Console.WriteLine("\nPlease enter a number and hit enter: ");
+                    userInput = int.Parse(Console.ReadLine());
+                    //check that input is valid
+                    if (userInput == 1)
+                    {
+                        selectBase(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    else if (userInput == 2)
+                    {
+                        allNumbers(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Enter a valid number");
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Enter a number.");
+                }
+            }
+        }
+        // letting user play again and resetting scores
+        public static int playAgain(int userIn, int score, int numOfQuestions, int numOfTries, int scoreSec, int triesSec, int queSec)
+        {
+            numOfTries = 0;
+            scoreSec = 0;
+            triesSec = 0;
+            queSec = 0;
+
+            Console.WriteLine("\nTo select your base press 1");
+            Console.WriteLine("To use all numbers 1-99 press 2");
+            // checking that the input is correct
+            while (true)
+            {
+                int userInput = 0;
+                try
+                {
+                    Console.WriteLine("\nPlease enter a number and hit enter: ");
+                    userInput = int.Parse(Console.ReadLine());
+                    //check that input is valid
+                    if (userInput == 1)
+                    {
+                        selectBase(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    else if (userInput == 2)
+                    {
+                        allNumbers(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Enter a valid number");
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Enter a number.");
+                }
+            }
+        }
+        // selecting the base to generate random numbers on 
+        public static int selectBase(int score, int numOfQuestions, int numOfTries, int scoreSec, int triesSec, int queSec)
+        {
+
+            Console.WriteLine("\nBase 10-19 select 1\nBase 20-29 select 2\nBase 30-39 select 3\nBase 40-49 select 4\n" +
+                "Base 50-59 select 5\nBase 60-69 (haha) select 6\nBase 70-79 select 7\nBase 80-89 select 8\nBase 90-99 select 9");
+            while (true)
+            {
+                int nextUserInput = 0;
+                try
+                {
+                    Console.WriteLine("\nPlease enter a number and hit enter: ");
+                    nextUserInput = int.Parse(Console.ReadLine());
+                    //check that input is valid
+                    if (nextUserInput == 1)
+                    {
+                        // move to base 1
+                        baseOne(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+
+                    }
+                    else if (nextUserInput == 2)
+                    {
+                        // move to base 2
+                        baseTwo(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    else if (nextUserInput == 3)
+                    {
+                        // move to base 3
+                        baseThree(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    else if (nextUserInput == 4)
+                    {
+                        // move to base 4
+                        baseFour(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    else if (nextUserInput == 5)
+                    {
+                        // move to base 5
+                        baseFive(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    else if (nextUserInput == 6)
+                    {
+                        // move to base 6
+                        baseSix(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    else if (nextUserInput == 7)
+                    {
+                        //move to base 7
+                        baseSeven(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    else if (nextUserInput == 8)
+                    {
+                        // move to base 8
+                        baseEight(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    else if (nextUserInput == 9)
+                    {
+                        // move to base 9
+                        baseNine(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Enter a valid number");
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Enter a number.");
+                }
+            }
+        }
+        // if selecting all numbers problems involve numbers from 1 - 99
+        public static int allNumbers(int score, int numOfQuestions, int numOfTries, int scoreSec, int triesSec, int queSec)
+        {
+            Random random = new Random();
+            int firstNumber = random.Next(1, 99);
+            int secondNumber = random.Next(1, 99);
+            int answer = firstNumber * secondNumber;
+            int test = 0;
+
+            Console.WriteLine("\n{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+            // checking that the input is correct
+            while (true)
+            {
+                int userInput = 0;
+                try
+                {
+                    Console.WriteLine("\nPlease enter a number and hit enter: ");
+                    userInput = int.Parse(Console.ReadLine());
+                    //check that input is valid
+                    if (userInput == answer)
+                    {
+                        // if user is correct add scores and generate new numbers
+                        Console.WriteLine("\nGood job!");
+                        if (test == 0)
+                        {
+                            score = score + 1;
+                            scoreSec = scoreSec + 1;
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                        }                  
+                        allNumbers(score, numOfQuestions,numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    // if answer isn't correct and they don't quit or change add questions and try again
+                    else if (userInput != answer && userInput != 0 && userInput != 1)
+                    {
+                        if (test == 0)
+                        { 
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                            test = test + 1;
+                        }
+                        Console.WriteLine("Why you dissapoint family!?\n");
+                        Console.WriteLine("{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+                    }
+                    // exit game and show them the final score
+                    else if (userInput == 0)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        Environment.Exit(0);
+                    }
+                    // show final score in section and move back to main menu
+                    else if (userInput == 1)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        playAgain(userInput, score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Enter a number.");
+                }
+            }
+        }
+        // base one case
+        public static int baseOne(int score, int numOfQuestions, int numOfTries, int scoreSec, int triesSec, int queSec)
+        {
+            Random random = new Random();
+            int firstNumber = random.Next(10, 19);
+            int secondNumber = random.Next(10, 19);
+            int answer = firstNumber * secondNumber;
+            int test = 0;
+
+            Console.WriteLine("\n{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+            // checking that the input is correct
+            while (true)
+            {
+                int userInput = 0;
+                try
+                {
+                    Console.WriteLine("\nPlease enter a number and hit enter: ");
+                    userInput = int.Parse(Console.ReadLine());
+                    //check that input is valid
+                    if (userInput == answer)
+                    {
+                        // if answer is correct add scores
+                        Console.WriteLine("\nGood job!");
+                        if (test == 0)
+                        {
+                            score = score + 1;
+                            scoreSec = scoreSec + 1;
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                        }
+                        baseOne(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    // if incorrect and not quit or menu add questions and try again
+                    else if (userInput != answer && userInput != 0 && userInput != 1)
+                    {
+                        if (test == 0)
+                        {
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                            test = test + 1;
+                        }
+                        Console.WriteLine("Why you dissapoint family!?\n");
+                        Console.WriteLine("{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+                    }
+                    // quit game and print score
+                    else if (userInput == 0)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        Environment.Exit(0);
+                    }
+                    // move to main menu and show scores
+                    else if (userInput == 1)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        playAgain(userInput, score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Enter a number.");
+                }
+            }
+        }
+        // base two case 
+        public static int baseTwo(int score, int numOfQuestions, int numOfTries, int scoreSec, int triesSec, int queSec)
+        {
+            Random random = new Random();
+            int firstNumber = random.Next(20, 29);
+            int secondNumber = random.Next(20, 29);
+            int answer = firstNumber * secondNumber;
+            int test = 0;
+
+            Console.WriteLine("\n{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+            // checking that the input is correct
+            while (true)
+            {
+                int userInput = 0;
+                try
+                {
+                    Console.WriteLine("\nPlease enter a number and hit enter: ");
+                    userInput = int.Parse(Console.ReadLine());
+                    //check that input is valid
+                    if (userInput == answer)
+                    {
+                        // if correct add scores and get new numbers
+                        Console.WriteLine("\nGood job!");
+                        if (test == 0)
+                        {
+                            score = score + 1;
+                            scoreSec = scoreSec + 1;
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                        }
+                        baseTwo(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    // if incorrect and not quit or main menu add questions and try again
+                    else if (userInput != answer && userInput != 0 && userInput != 1)
+                    {
+                        if (test == 0)
+                        {
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                            test = test + 1;
+                        }
+                        Console.WriteLine("Why you dissapoint family!?\n");
+                        Console.WriteLine("{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+                    }
+                    // quit and print scores
+                    else if (userInput == 0)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        Environment.Exit(0);
+                    }
+                    // main menu and print scores
+                    else if (userInput == 1)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        playAgain(userInput, score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Enter a number.");
+                }
+            }
+        }
+        // base three case
+        public static int baseThree(int score, int numOfQuestions, int numOfTries, int scoreSec, int triesSec, int queSec)
+        {
+            Random random = new Random();
+            int firstNumber = random.Next(30, 39);
+            int secondNumber = random.Next(30, 39);
+            int answer = firstNumber * secondNumber;
+            int test = 0;
+
+            Console.WriteLine("\n{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+            // checking that the input is correct
+            while (true)
+            {
+                int userInput = 0;
+                try
+                {
+                    Console.WriteLine("\nPlease enter a number and hit enter: ");
+                    userInput = int.Parse(Console.ReadLine());
+                    //check that input is valid
+                    if (userInput == answer)
+                    {
+                        // if answer correct add scores get new numbers 
+                        Console.WriteLine("\nGood job!");
+                        if (test == 0)
+                        {
+                            score = score + 1;
+                            scoreSec = scoreSec + 1;
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                        }
+                        baseThree(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    // wrong score not quit or main menu add questions and try again
+                    else if (userInput != answer && userInput != 0 && userInput != 1)
+                    {
+                        if (test == 0)
+                        {
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                            test = test + 1;
+                        }
+                        Console.WriteLine("Why you dissapoint family!?\n");
+                        Console.WriteLine("{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+                    }
+                    // quit and print scores
+                    else if (userInput == 0)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        Environment.Exit(0);
+                    }
+                    // main menu and print scores
+                    else if (userInput == 1)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        playAgain(userInput, score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Enter a number.");
+                }
+            }
+        }
+        // base four case 
+        public static int baseFour(int score, int numOfQuestions, int numOfTries, int scoreSec, int triesSec, int queSec)
+        {
+            Random random = new Random();
+            int firstNumber = random.Next(40, 49);
+            int secondNumber = random.Next(40, 49);
+            int answer = firstNumber * secondNumber;
+            int test = 0;
+
+            Console.WriteLine("\n{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+            // checking that the input is correct
+            while (true)
+            {
+                int userInput = 0;
+                try
+                {
+                    Console.WriteLine("\nPlease enter a number and hit enter: ");
+                    userInput = int.Parse(Console.ReadLine());
+                    //check that input is valid
+                    if (userInput == answer)
+                    {
+                        // if correct add scores and get new numbers
+                        Console.WriteLine("\nGood job!");
+                        if (test == 0)
+                        {
+                            score = score + 1;
+                            scoreSec = scoreSec + 1;
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                        }
+                        baseFour(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    // incorrect and not quit or main menu add questions and try again
+                    else if (userInput != answer && userInput != 0 && userInput != 1)
+                    {
+                        if (test == 0)
+                        {
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                            test = test + 1;
+                        }
+                        Console.WriteLine("Why you dissapoint family!?\n");
+                        Console.WriteLine("{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+                    }
+                    // quit and print scores
+                    else if (userInput == 0)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        Environment.Exit(0);
+                    }
+                    // main menu and print scoress
+                    else if (userInput == 1)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        playAgain(userInput, score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Enter a number.");
+                }
+            }
+        }
+        // base five case
+        public static int baseFive(int score, int numOfQuestions, int numOfTries, int scoreSec, int triesSec, int queSec)
+        {
+            Random random = new Random();
+            int firstNumber = random.Next(50, 59);
+            int secondNumber = random.Next(50, 59);
+            int answer = firstNumber * secondNumber;
+            int test = 0;
+
+            Console.WriteLine("\n{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+            // checking that the input is correct
+            while (true)
+            {
+                int userInput = 0;
+                try
+                {
+                    Console.WriteLine("\nPlease enter a number and hit enter: ");
+                    userInput = int.Parse(Console.ReadLine());
+                    //check that input is valid
+                    if (userInput == answer)
+                    {
+                        // correct add to scores and get new numbers 
+                        Console.WriteLine("\nGood job!");
+                        if (test == 0)
+                        {
+                            score = score + 1;
+                            scoreSec = scoreSec + 1;
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                        }
+                        baseFive(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    // incorrect not quit or main menu add questions and try again
+                    else if (userInput != answer && userInput != 0 && userInput != 1)
+                    {
+                        if (test == 0)
+                        {
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                            test = test + 1;
+                        }
+                        Console.WriteLine("Why you dissapoint family!?\n");
+                        Console.WriteLine("{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+                    }
+                    // quit and show scores
+                    else if (userInput == 0)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        Environment.Exit(0);
+                    }
+                    // main menu and show scores
+                    else if (userInput == 1)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        playAgain(userInput, score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Enter a number.");
+                }
+            }
+        }
+        // base six case 
+        public static int baseSix(int score, int numOfQuestions, int numOfTries, int scoreSec, int triesSec, int queSec)
+        {
+            Random random = new Random();
+            int firstNumber = random.Next(60, 69);
+            int secondNumber = random.Next(60, 69);
+            int answer = firstNumber * secondNumber;
+            int test = 0;
+
+            Console.WriteLine("\n{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+            // checking that the input is correct
+            while (true)
+            {
+                int userInput = 0;
+                try
+                {
+                    Console.WriteLine("\nPlease enter a number and hit enter: ");
+                    userInput = int.Parse(Console.ReadLine());
+                    //check that input is valid
+                    if (userInput == answer)
+                    {
+                        // correct add scores and get new numbers 
+                        Console.WriteLine("\nGood job!");
+                        if (test == 0)
+                        {
+                            score = score + 1;
+                            scoreSec = scoreSec + 1;
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                        }
+                        baseSix(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    // incorrect not quit or main menu add questions and try again 
+                    else if (userInput != answer && userInput != 0 && userInput != 1)
+                    {
+                        if (test == 0)
+                        {
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                            test = test + 1;
+                        }
+                        Console.WriteLine("Why you dissapoint family!?\n");
+                        Console.WriteLine("{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+                    }
+                    // quit and print scores
+                    else if (userInput == 0)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        Environment.Exit(0);
+                    }
+                    // main menu and try again
+                    else if (userInput == 1)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        playAgain(userInput, score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Enter a number.");
+                }
+            }
+        }
+        // base seven case
+        public static int baseSeven(int score, int numOfQuestions, int numOfTries, int scoreSec, int triesSec, int queSec)
+        {
+            Random random = new Random();
+            int firstNumber = random.Next(70, 79);
+            int secondNumber = random.Next(70, 79);
+            int answer = firstNumber * secondNumber;
+            int test = 0;
+
+            Console.WriteLine("\n{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+            // checking that the input is correct
+            while (true)
+            {
+                int userInput = 0;
+                try
+                {
+                    Console.WriteLine("\nPlease enter a number and hit enter: ");
+                    userInput = int.Parse(Console.ReadLine());
+                    //check that input is valid
+                    if (userInput == answer)
+                    {
+                        // correct add scores and get new numbers 
+                        Console.WriteLine("\nGood job!");
+                        if (test == 0)
+                        {
+                            score = score + 1;
+                            scoreSec = scoreSec + 1;
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                        }
+                        baseSeven(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    // incorrect and not quit or main menu add questions and try again 
+                    else if (userInput != answer && userInput != 0 && userInput != 1)
+                    {
+                        if (test == 0)
+                        {
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                            test = test + 1;
+                        }
+                        Console.WriteLine("Why you dissapoint family!?\n");
+                        Console.WriteLine("{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+                    }
+                    // quit and print scores
+                    else if (userInput == 0)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        Environment.Exit(0);
+                    }
+                    // main menu and print scores
+                    else if (userInput == 1)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        playAgain(userInput, score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Enter a number.");
+                }
+            }
+        }
+        // base eight case
+        public static int baseEight(int score, int numOfQuestions, int numOfTries, int scoreSec, int triesSec, int queSec)
+        {
+            Random random = new Random();
+            int firstNumber = random.Next(80, 89);
+            int secondNumber = random.Next(80, 89);
+            int answer = firstNumber * secondNumber;
+            int test = 0;
+
+            Console.WriteLine("\n{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+            // checking that the input is correct
+            while (true)
+            {
+                int userInput = 0;
+                try
+                {
+                    Console.WriteLine("\nPlease enter a number and hit enter: ");
+                    userInput = int.Parse(Console.ReadLine());
+                    //check that input is valid
+                    if (userInput == answer)
+                    {
+                        // correct add scores and get new numbers 
+                        Console.WriteLine("\nGood job!");
+                        if (test == 0)
+                        {
+                            score = score + 1;
+                            scoreSec = scoreSec + 1;
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                        }
+                        baseEight(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    // incorrect and not quit or main menu add questions try again 
+                    else if (userInput != answer && userInput != 0 && userInput != 1)
+                    {
+                        if (test == 0)
+                        {
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                            test = test + 1;
+                        }
+                        Console.WriteLine("Why you dissapoint family!?\n");
+                        Console.WriteLine("{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+                    }
+                    // quit and show scores
+                    else if (userInput == 0)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        Environment.Exit(0);
+                    }
+                    // main menu and show scores
+                    else if (userInput == 1)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        playAgain(userInput, score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Enter a number.");
+                }
+            }
+        }
+        // base nine case 
+        public static int baseNine(int score, int numOfQuestions, int numOfTries, int scoreSec, int triesSec, int queSec)
+        {
+            Random random = new Random();
+            int firstNumber = random.Next(90, 99);
+            int secondNumber = random.Next(90, 99);
+            int answer = firstNumber * secondNumber;
+            int test = 0;
+
+            Console.WriteLine("\n{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+            // checking that the input is correct
+            while (true)
+            {
+                int userInput = 0;
+                try
+                {
+                    Console.WriteLine("\nPlease enter a number and hit enter: ");
+                    userInput = int.Parse(Console.ReadLine());
+                    //check that input is valid
+                    if (userInput == answer)
+                    {
+                        // correct add scores and get new numbers
+                        Console.WriteLine("\nGood job!");
+                        if (test == 0)
+                        {
+                            score = score + 1;
+                            scoreSec = scoreSec + 1;
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                        }
+                        baseNine(score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                    // incorrect not quit or main menu add questions and try again 
+                    else if (userInput != answer && userInput != 0 && userInput != 1)
+                    {
+                        if (test == 0)
+                        {
+                            numOfQuestions = numOfQuestions + 1;
+                            queSec = queSec + 1;
+                            test = test + 1;
+                        }
+                        Console.WriteLine("Why you dissapoint family!?\n");
+                        Console.WriteLine("{0} X {1}\nPress 0 to escape.\nPress 1 to go to the main menu", firstNumber, secondNumber);
+                    }
+                    // quit and print scores
+                    else if (userInput == 0)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        Environment.Exit(0);
+                    }
+                    // main menu and print scores
+                    else if (userInput == 1)
+                    {
+                        Console.WriteLine("\nThanks for playing!\nYour final score in this section is {0} out of {1}" +
+                            "\nYour total score is {2} out of {3}", scoreSec, queSec, score, numOfQuestions);
+                        playAgain(userInput, score, numOfQuestions, numOfTries, scoreSec, triesSec, queSec);
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Enter a number.");
+                }
+            }
+        }
+    }
+}
