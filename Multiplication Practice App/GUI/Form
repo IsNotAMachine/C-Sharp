@@ -354,6 +354,7 @@ namespace MathAppGUI
             // reset round score and get numbers 
             roundScore = 0;
             roundQuestions = 0;
+            tries = 0;
             setFirstNum(firstNum, 10, 19);
             setSecondNum(secondNum, 10, 19);
             setAnswer(firstNum, secondNum);
@@ -380,6 +381,7 @@ namespace MathAppGUI
             // reset score and get numbers
             roundScore = 0;
             roundQuestions = 0;
+            tries = 0;
             setFirstNum(firstNum, 20, 29);
             setSecondNum(secondNum, 20, 29);
             setAnswer(firstNum, secondNum);
@@ -406,6 +408,7 @@ namespace MathAppGUI
             // reset score and get numbers
             roundScore = 0;
             roundQuestions = 0;
+            tries = 0;
             setFirstNum(firstNum, 30, 39);
             setSecondNum(secondNum, 30, 39);
             setAnswer(firstNum, secondNum);
@@ -432,6 +435,7 @@ namespace MathAppGUI
             // reset score and get numbers 
             roundScore = 0;
             roundQuestions = 0;
+            tries = 0;
             setFirstNum(firstNum, 40, 49);
             setSecondNum(secondNum, 40, 49);
             setAnswer(firstNum, secondNum);
@@ -458,6 +462,7 @@ namespace MathAppGUI
             // reset score and get numbers
             roundScore = 0;
             roundQuestions = 0;
+            tries = 0;
             setFirstNum(firstNum, 50, 59);
             setSecondNum(secondNum, 50, 59);
             setAnswer(firstNum, secondNum);
@@ -484,6 +489,7 @@ namespace MathAppGUI
             // reset score and get new numbers 
             roundScore = 0;
             roundQuestions = 0;
+            tries = 0;
             setFirstNum(firstNum, 60, 69);
             setSecondNum(secondNum, 60, 69);
             setAnswer(firstNum, secondNum);
@@ -510,6 +516,7 @@ namespace MathAppGUI
             // reset score and get numbers
             roundScore = 0;
             roundQuestions = 0;
+            tries = 0;
             setFirstNum(firstNum, 70, 79);
             setSecondNum(secondNum, 70, 79);
             setAnswer(firstNum, secondNum);
@@ -536,6 +543,7 @@ namespace MathAppGUI
             // reset score and get new numbers
             roundScore = 0;
             roundQuestions = 0;
+            tries = 0;
             setFirstNum(firstNum, 80, 89);
             setSecondNum(secondNum, 80, 89);
             setAnswer(firstNum, secondNum);
@@ -562,6 +570,7 @@ namespace MathAppGUI
             // reset score and get numbers
             roundScore = 0;
             roundQuestions = 0;
+            tries = 0;
             setFirstNum(firstNum, 90, 99);
             setSecondNum(secondNum, 90, 99);
             setAnswer(firstNum, secondNum);
